@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>OSTEP notes:CH.20 分页:较小的表</title>
+    <link href="/2024/05/27/OSTEP-notes-CH-20-%E5%88%86%E9%A1%B5-%E8%BE%83%E5%B0%8F%E7%9A%84%E8%A1%A8/"/>
+    <url>/2024/05/27/OSTEP-notes-CH-20-%E5%88%86%E9%A1%B5-%E8%BE%83%E5%B0%8F%E7%9A%84%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p><strong>页表消耗的内存太多！</strong>现代系统中会有上百个进程，如果我们要为每个进程都分配一个页表，那么页表会占用大量的内存！<br><strong>我们需要一种合理的方法来缩小页表。</strong></p><hr><h1 id="Solution-1：更大的页"><a href="#Solution-1：更大的页" class="headerlink" title="Solution 1：更大的页"></a>Solution 1：更大的页</h1><p>最简单的方法就是使用更大的页！<br>在地址空间大小一定的情况下，<strong>使用更大的页</strong>，会<strong>导致更短的VPN</strong>，即<strong>更少的页数量</strong>，<strong>更少的页数量意味着页表中会有更少的PTE</strong>，自然也就缩小了页表的大小。<br>更大的页还有其他好处：它<strong>减轻了TLB的压力</strong>！试想对于一个更大的页，我们在随机访问元素时会更容易命中，而不会遭受太多的TLB未命中之苦。<br>但是<strong>更大的页意味着内部碎片问题的加重</strong>！所以在大多数系统都会使用较小的页，例如在 x86 中使用 4KB大小的页。</p><hr><h1 id="Solution-2：混合分页和分段"><a href="#Solution-2：混合分页和分段" class="headerlink" title="Solution 2：混合分页和分段"></a>Solution 2：混合分页和分段</h1><p>回想一下，抛去页表大小这个问题！为什么线性页表机制会导致较大的页表？主要是因为<strong>在堆和栈之间有大量的地址空间没有被使用，却还在页表中占用着页表项。</strong><br>而分段方法恰好可以解决这个问题！于是我们将分页和分段的方法杂合起来。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CS Basic Learning</category>
+      
+      <category>OS</category>
+      
+      <category>notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>分页机制</tag>
+      
+      <tag>内存管理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2024/05/12/hello-world/"/>
     <url>/2024/05/12/hello-world/</url>
